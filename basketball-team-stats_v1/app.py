@@ -48,7 +48,7 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
             if experienced:
                 balanced_teams[team]['experienced'].append(experienced.pop(0))
 
-# Distribute inexperienced players evenly across teams
+    # Distribute inexperienced players evenly across teams
     while inexperienced:
         for team in teams:
             if experienced:
