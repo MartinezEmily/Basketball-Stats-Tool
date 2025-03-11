@@ -38,7 +38,9 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
     inexperienced_players_per_team = len(inexperienced) // len(teams)   # 3 inexperienced players per team
 
     # Distribute players evenly across teams
-    
+    balanced_teams = {}
+    for team in teams:
+        balanced_teams[team] = {'experienced': [], 'inexperienced': []}
 
 
 if __name__ == "__main__":              # Running app.py file directly
