@@ -57,6 +57,29 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
 
     return balanced_teams
 
+
+def display_team_stats(balanced_teams): # Display team stats
+    print("\n *** Team Stats *** \n")
+
+    for team, players in balanced_teams.items():
+        total_players = len(players['experienced']) +len(players['inexperienced'])
+
+        # Get all player names as a comma-separated string
+        experienced_players_names = []
+        for player in players['experienced']:
+            experienced_players_names.append(player['name'])
+
+        inexperienced_players_names = []
+        for player in players['inexperienced']:
+            inexperienced_players_names.append(player['name'])
+
+        all_players_names = experienced_players_names + inexperienced_players_names
+        all_players_names_str = ", ".join(all_players_names)
+
+
+
+
+
 if __name__ == "__main__":              # Running app.py file directly
 
     cleaned_players = clean_data(PLAYERS)  # Calling clean_data function
@@ -64,3 +87,5 @@ if __name__ == "__main__":              # Running app.py file directly
 
     balanced_teams = balance_teams(TEAMS, cleaned_players)
     print(balanced_teams)
+
+    display_team_stats(balanced_teams)
