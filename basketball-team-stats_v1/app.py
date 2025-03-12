@@ -10,7 +10,7 @@ def clean_data(data):   # Clean guardian, experience, and height data of each pl
         fixed["name"] = player["name"] 
         print(player["name"])
         # Split guardian into a list
-        fixed["guardian"] = player["guardians"].split(" and ")
+        fixed["guardians"] = player["guardians"].split(" and ")
         # Convert experience to boolean
         if player["experience"] == "YES":
             fixed["experience"] = True
@@ -91,10 +91,10 @@ def display_team_stats(balanced_teams): # Display team stats
         # Get all guardians as a comma-separated string
         guardians = []
         for player in players['experienced'] + players['inexperienced']:
-            for guardian in player['guardian']:
+            for guardian in player['guardians']:
                 guardians.append(guardian)
 
-        guardian_str = ", ".join(guardians)
+        guardians_str = ", ".join(guardians)
 
         print(f"Team: {team}")
         print(f"Total Players: {total_players}")
@@ -102,7 +102,7 @@ def display_team_stats(balanced_teams): # Display team stats
         print(f"Number of Experienced Players: {experienced_count}")
         print(f"Number of Inexperienced Players: {inexperienced_count}")
         print(f"Average Height: {average_height}")
-        print(f"Guardians: {guardian_str}\n")
+        print(f"Guardians: {guardians_str}\n")
 
 
 if __name__ == "__main__":              # Running app.py file directly
