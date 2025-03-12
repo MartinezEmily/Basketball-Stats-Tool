@@ -26,8 +26,8 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
     experienced = []
     inexperienced = []
 
-    for player in players:  # Create two categories: experienced vs inexperienced
-        if player['experience']:
+    for player in players:  # Create two categories: experienced and inexperienced
+        if player["experience"]:
             experienced.append(player)
         else:
             inexperienced.append(player)
@@ -40,26 +40,26 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
     # Distribute players evenly across teams
     balanced_teams = {
         team: {
-            'experienced': [], 
-            'inexperienced': [],
-            'total_experienced': 0,
-            'total_inexperienced': 0,
-            'average_height': 0
+            "experienced": [], 
+            "inexperienced": [],
+            "total_experienced": 0,
+            "total_inexperienced": 0,
+            "average_height": 0
         } for team in teams
-
+        
     }
 
     # Distribute experienced players evenly across teams
     while experienced:
         for team in teams:
             if experienced:
-                balanced_teams[team]['experienced'].append(experienced.pop(0))
+                balanced_teams[team]["experienced"].append(experienced.pop(0))
 
     # Distribute inexperienced players evenly across teams
     while inexperienced:
         for team in teams:
             if inexperienced:
-                balanced_teams[team]['inexperienced'].append(inexperienced.pop(0))
+                balanced_teams[team]["inexperienced"].append(inexperienced.pop(0))
 
     # Set total_experienced, total_inexperienced, and average_height after distributing players to ensure accurate calculations.
     for team in teams:
@@ -69,8 +69,8 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
 
         # Calculate average height 
         total_height = 0
-        for player in team_data['experienced'] + team_data['inexperienced']:
-            total_height += player['height']
+        for player in team_data["experienced"] + team_data["inexperienced"]:
+            total_height += player["height"]
 
         team_data["average_height"] = round(total_height / num_players_per_team, 2)
 
@@ -80,28 +80,32 @@ def display_team_stats(balanced_teams): # Display team stats
     print("\n *** Team Stats *** \n")
 
     for team, team_data in balanced_teams.items():
-        total_players = len(team_data['experienced']) + len(team_data['inexperienced'])
+        total_players = len(team_data["experienced"]) + len(team_data["inexperienced"])
+
+        # Sort players by height: experienced and inexperienced
+        team_data['experienced'] = sorted(team_data['experienced'], key = lambda player: player['height'])
+        team_data['inexperienced'] = sorted(team_data['inexperienced'], key = lambda player: player['height'])
 
         # Get all player names as a comma-separated string
         experienced_players_names = []
-        for player in team_data['experienced']:
-            experienced_players_names.append(player['name'])
+        for player in team_data["experienced"]:
+            experienced_players_names.append(player["name"])
 
         inexperienced_players_names = []
-        for player in team_data['inexperienced']:
-            inexperienced_players_names.append(player['name'])
+        for player in team_data["inexperienced"]:
+            inexperienced_players_names.append(player["name"])
 
         all_players_names = experienced_players_names + inexperienced_players_names
         all_players_names_str = ", ".join(all_players_names)
 
         # Count of experienced and inexperienced players
-        experienced_count = len(team_data['experienced'])
-        inexperienced_count = len(team_data['inexperienced'])
+        experienced_count = len(team_data["experienced"])
+        inexperienced_count = len(team_data["inexperienced"])
 
         # Get all guardians as a comma-separated string
         guardians = []
-        for player in team_data['experienced'] + team_data['inexperienced']:
-            for guardian in player['guardians']:
+        for player in team_data["experienced"] + team_data["inexperienced"]:
+            for guardian in player["guardians"]:
                 guardians.append(guardian)
 
         guardians_str = ", ".join(guardians)
@@ -111,7 +115,7 @@ def display_team_stats(balanced_teams): # Display team stats
         print(f"Players: {all_players_names_str}")
         print(f"Number of Experienced Players: {experienced_count}")
         print(f"Number of Inexperienced Players: {inexperienced_count}")
-        print(f"Average Height: {team_data['average_height']}")
+        print(f"Average Height: {team_data["average_height"]}")
         print(f"Guardians: {guardians_str}\n")
 
 
