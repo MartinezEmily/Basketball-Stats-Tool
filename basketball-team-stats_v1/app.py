@@ -62,7 +62,7 @@ def display_team_stats(balanced_teams): # Display team stats
     print("\n *** Team Stats *** \n")
 
     for team, players in balanced_teams.items():
-        total_players = len(players['experienced']) +len(players['inexperienced'])
+        total_players = len(players['experienced']) + len(players['inexperienced'])
 
         # Get all player names as a comma-separated string
         experienced_players_names = []
@@ -85,7 +85,7 @@ def display_team_stats(balanced_teams): # Display team stats
         for player in players['experienced'] + players['inexperienced']:
             total_height += player['height']
 
-        average_height = total_height / total_players   # Calculate average height
+        average_height = total_height / total_players
         average_height = round(average_height, 2)
 
         # Get all guardians as a comma-separated string
