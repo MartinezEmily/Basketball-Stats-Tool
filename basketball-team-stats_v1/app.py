@@ -76,8 +76,28 @@ def display_team_stats(balanced_teams): # Display team stats
         all_players_names = experienced_players_names + inexperienced_players_names
         all_players_names_str = ", ".join(all_players_names)
 
+        # Count of experienced and inexperienced players
+        experienced_count = len(players['experienced'])
+        inexperienced_count = len(players['inexperienced'])
 
+        # Calculate average height 
+        total_height = 0
+        for player in players['experienced'] + players['inexperienced']:
+            total_height += player['height']
 
+        # Get all guardians as a comma-separated string
+        guardians = []
+        for player in players['experienced'] + players['inexperienced']:
+            for guardian in player['guardian']:
+                guardians.append(guardian)
+
+        guardian_str = ", ".join(guardians)
+
+        print(f"Team: {team}")
+        print(f" Total Players: {total_players}")
+        print(f" Players: {all_players_names_str}")
+        print(f" Number of Experienced Players: {experienced_count}")
+        print(f" Number of Inexperienced Players: {inexperienced_count}")
 
 
 if __name__ == "__main__":              # Running app.py file directly
