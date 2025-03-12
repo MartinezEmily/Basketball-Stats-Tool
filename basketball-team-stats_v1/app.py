@@ -33,7 +33,8 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
         else:
             inexperienced.append(player)
 
-    # Experience level distribution
+    # Calculate how many players each team should have, and how many from each category
+    num_players_per_team = len(players) // len(teams) #  6 players per team
     experienced_players_per_team = len(experienced) // len(teams)   # 3 experienced players per team
     inexperienced_players_per_team = len(inexperienced) // len(teams)   # 3 inexperienced players per team
 
