@@ -45,8 +45,7 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
             "total_experienced": 0,
             "total_inexperienced": 0,
             "average_height": 0
-        } for team in teams
-        
+        } for team in teams 
     }
 
     # Distribute experienced players evenly across teams
