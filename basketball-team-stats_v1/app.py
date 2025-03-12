@@ -28,7 +28,7 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
     inexperienced = []
 
     for player in players:  # Create two categories: experienced vs inexperienced
-        if player['experience'] == 'YES':
+        if player['experience']:
             experienced.append(player)
         else:
             inexperienced.append(player)
@@ -51,14 +51,14 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
     # Distribute inexperienced players evenly across teams
     while inexperienced:
         for team in teams:
-            if experienced:
+            if inexperienced:
                 balanced_teams[team]['inexperienced'].append(inexperienced.pop(0))
 
     return balanced_teams
 
 if __name__ == "__main__":              # Running app.py file directly
 
-    cleaned_players = clean_data(PLAYERS)  # calling clean_data function
+    cleaned_players = clean_data(PLAYERS)  # Calling clean_data function
     print(cleaned_players)
 
     balanced_teams = balance_teams(TEAMS, cleaned_players)
