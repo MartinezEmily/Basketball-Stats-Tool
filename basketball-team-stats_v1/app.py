@@ -118,6 +118,43 @@ def display_team_stats(balanced_teams): # Display team stats
         print(f"Guardians: {guardians_str}\n")
 
 
+def main_menu(balanced_teams):
+    while True:
+        print("""
+        BASKETBALL TEAM STATS TOOL
+
+        ---- MENU ----
+        Here are your choices:
+            A) Display Team Stats
+            B) Quit
+        """)
+
+        choice = input("Enter an option: ").upper()
+
+        if choice == "A":
+            print("""
+            Select a team:
+                A) Panthers
+                B) Bandits
+                C) Warriors
+            """)
+
+            team_choice = input("Enter an option: ").upper()
+            teams_options = {"A": "Panthers", "B": "Bandits", "C": "Warriors"}
+
+            if team_choice in teams_options:
+                team_name = teams_options[team_choice]
+                display_team_stats({team_name: balanced_teams[team_name]})
+                input("\nPress 'ENTER' to continue...")
+            else:
+                print("\nInvalid option. Please try again.")
+
+        elif choice == "B":
+            print("\nGoodbye!")
+            break
+
+        else:
+            print("\nInvalid option. Please try again.")
 
 
 
@@ -126,14 +163,11 @@ def display_team_stats(balanced_teams): # Display team stats
 
 
 
-
-
-if __name__ == "__main__":              # Running app.py file directly
+if __name__ == "__main__":  # Running app.py file directly
 
     cleaned_players = clean_data(PLAYERS)
 
-
     balanced_teams = balance_teams(TEAMS, cleaned_players)
 
-    display_team_stats(balanced_teams)
+    main_menu(balanced_teams)   # Call the main_menu function to start the program
 
