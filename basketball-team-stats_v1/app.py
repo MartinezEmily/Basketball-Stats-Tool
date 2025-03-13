@@ -112,9 +112,9 @@ def display_team_stats(balanced_teams): # Display team stats
         print(f"Team: {team}")
         print("-" * 30)
         print(f"Total Players: {total_players}")
-        print(f"Players: {all_players_names_str}")
         print(f"Number of Experienced Players: {experienced_count}")
         print(f"Number of Inexperienced Players: {inexperienced_count}")
+        print(f"Players: {all_players_names_str}")
         print(f"Average Height: {team_data['average_height']}")
         print(f"Guardians: {guardians_str}\n")
 
@@ -122,12 +122,12 @@ def display_team_stats(balanced_teams): # Display team stats
 def main_menu(balanced_teams):
     while True:
         print("""
-        BASKETBALL TEAM STATS TOOL
+BASKETBALL TEAM STATS TOOL
 
-        ---- MENU ----
-        Here are your choices:
-            A) Display Team Stats
-            B) Quit
+---- MENU ----
+Here are your choices:
+A) Display Team Stats
+B) Quit
         """)
 
         choice = input("Enter an option: ").upper()
