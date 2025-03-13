@@ -134,10 +134,10 @@ B) Quit
 
         if choice == "A":
             print("""
-            Select a team:
-                A) Panthers
-                B) Bandits
-                C) Warriors
+Select a team:
+A) Panthers
+B) Bandits
+C) Warriors
             """)
 
             team_choice = input("Enter an option: ").upper()
@@ -156,12 +156,6 @@ B) Quit
 
         else:
             print("\nInvalid option. Please try again.")
-
-
-
-
-
-
 
 
 if __name__ == "__main__":  # Running app.py file directly
