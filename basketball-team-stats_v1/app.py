@@ -122,7 +122,7 @@ def display_team_stats(balanced_teams): # Display team stats
 def main_menu(balanced_teams):
     while True:
         print("""
-BASKETBALL TEAM STATS TOOL
+\U0001F3C0 BASKETBALL TEAM STATS TOOL \U0001F3C0
 
 ------- MENU -------
 Here are your choices:
