@@ -151,7 +151,6 @@ C) Warriors
                 print("\nInvalid option. Please try again.")
 
         elif choice == "B":
-            print("\nGoodbye!")
             break
 
         else:
