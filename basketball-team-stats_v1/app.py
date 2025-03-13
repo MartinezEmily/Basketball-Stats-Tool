@@ -109,13 +109,13 @@ def display_team_stats(balanced_teams): # Display team stats
 
         guardians_str = ", ".join(guardians)
 
-        print(f"Team: {team}")
+        print(f"Team: {team}' Stats")
         print("-" * 30)
         print(f"Total Players: {total_players}")
         print(f"Number of Experienced Players: {experienced_count}")
         print(f"Number of Inexperienced Players: {inexperienced_count}")
-        print(f"Players: {all_players_names_str}")
         print(f"Average Height: {team_data['average_height']}")
+        print(f"Players: {all_players_names_str}")   
         print(f"Guardians: {guardians_str}\n")
 
 
@@ -124,7 +124,7 @@ def main_menu(balanced_teams):
         print("""
 BASKETBALL TEAM STATS TOOL
 
----- MENU ----
+------- MENU -------
 Here are your choices:
 A) Display Team Stats
 B) Quit
@@ -159,10 +159,7 @@ C) Warriors
 
 
 if __name__ == "__main__":  # Running app.py file directly
-
     cleaned_players = clean_data(PLAYERS)
-
     balanced_teams = balance_teams(TEAMS, cleaned_players)
-
     main_menu(balanced_teams)   # Call the main_menu function to start the program
 
