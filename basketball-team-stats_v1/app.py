@@ -110,11 +110,12 @@ def display_team_stats(balanced_teams): # Display team stats
         guardians_str = ", ".join(guardians)
 
         print(f"Team: {team}")
+        print("-" * 30)
         print(f"Total Players: {total_players}")
         print(f"Players: {all_players_names_str}")
         print(f"Number of Experienced Players: {experienced_count}")
         print(f"Number of Inexperienced Players: {inexperienced_count}")
-        print(f"Average Height: {team_data["average_height"]}")
+        print(f"Average Height: {team_data['average_height']}")
         print(f"Guardians: {guardians_str}\n")
 
 
