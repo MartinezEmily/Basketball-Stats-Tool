@@ -109,43 +109,15 @@ def display_team_stats(balanced_teams): # Display team stats
 
         guardians_str = ", ".join(guardians)
 
+        print(f"Team: {team}")
+        print(f"Total Players: {total_players}")
+        print(f"Players: {all_players_names_str}")
+        print(f"Number of Experienced Players: {experienced_count}")
+        print(f"Number of Inexperienced Players: {inexperienced_count}")
+        print(f"Average Height: {team_data["average_height"]}")
+        print(f"Guardians: {guardians_str}\n")
 
 
-
-def show_menu(teams, balanced_teams):
-    while True:
-        print(""" BASKETBALL TEAM STATS TOOL
-        --- Main Menu---
-        A) Display Team Stats
-        B) Quit
-        """)
-
-        choice = input("Enter an option:    ").upper()
-
-        if choice == "A": 
-            print("""A) Panthers
-            B) Bandits
-            C) Warriors\n
-            """)
-
-            team_choice = input("Enter an option:   ").upper()
-            options_for_teams = {"A": "Panthers", "B": "Bandits", "C":"Warriors"}
-
-            if team_choice in options_for_teams:
-                selected_team = options_for_teams[team_choice]
-                print(f"\nTeam: {selected_team} Stats")
-                print("----------------")
-                display_team_stats({selected_team: balanced_teams[selected_team]})
-                input("\nPress ENTER to continue...")
-            else: 
-                print("\nInvalid choice! Please enter A, B, or C.")
-
-        elif choice == "B":
-            print("\nThank you for using the Basketball Team Stats tool! Goodbye! \n")
-            break
-
-        else: 
-            print("\nInvalid choice! Please enter A or B.")
 
 
 
@@ -158,10 +130,10 @@ def show_menu(teams, balanced_teams):
 
 if __name__ == "__main__":              # Running app.py file directly
 
-    cleaned_players = clean_data(PLAYERS)  # Calling clean_data function
-    print(cleaned_players)
+    cleaned_players = clean_data(PLAYERS)
+
 
     balanced_teams = balance_teams(TEAMS, cleaned_players)
-    print(balanced_teams)
 
     display_team_stats(balanced_teams)
+
