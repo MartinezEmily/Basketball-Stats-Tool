@@ -158,6 +158,11 @@ C) Warriors
 
 
 if __name__ == "__main__":  # Running app.py file directly
+    from copy import deepcopy   # Creates independent copies of PLAYERS and TEAMS to prevent modifying the original data.
+
+    player_copy = deepcopy(PLAYERS)
+    teams_copy = deepcopy(TEAMS)
+
     cleaned_players = clean_data(PLAYERS)
     balanced_teams = balance_teams(TEAMS, cleaned_players)
     main_menu(balanced_teams)   # Call the main_menu function to start the program
