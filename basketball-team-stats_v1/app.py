@@ -75,6 +75,7 @@ def balance_teams(teams, players):    # Distribute players evenly across teams, 
 
     return balanced_teams
 
+
 def display_team_stats(balanced_teams): # Display team stats
     print("\n *** Team Stats *** \n")
 
@@ -166,4 +167,3 @@ if __name__ == "__main__":  # Running app.py file directly
     cleaned_players = clean_data(players_copy)
     balanced_teams = balance_teams(teams_copy, cleaned_players)
     main_menu(balanced_teams)   # Call the main_menu function to start the program
-
